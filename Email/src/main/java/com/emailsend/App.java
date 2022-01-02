@@ -18,11 +18,11 @@ public class App
 	public static void main( String[] args )
 	{
 		System.out.println( "Preparing to send message" );
-		String message = "Hello , Dear Happy New Year 2022 Hurrey";
+		String message = "<h1>Hello Dear Hapyy New Year!</h1><br><p>Hurrey!!</p>";
 		String subject = "New year wish";
 		String to = "mayankyadavcool1503@gmail.com";
 		String from = "thunderstorm4627@gmail.com";
-		String filePath = "C:\\Users\\mayank.yadav\\Desktop\\GitFiles\\Notepad++Files\\Servlet.java";
+		String filePath = "C:\\Users\\mayank.yadav\\Desktop\\extra\\wallpaperflare.com_wallpaper.jpg";
 
 		if(filePath.isEmpty() || filePath.equals("") || filePath==null) {
 			sendEmail(message,subject,to,from);
@@ -39,7 +39,11 @@ public class App
 			//text 
 			//file 
 			MimeBodyPart textMime = new MimeBodyPart();
-			textMime.setText(message);
+			//for sending normal message without html
+			//textMime.setText(message);
+			
+			//for sending html content
+			textMime.setText(message,null,"html");
 
 			MimeBodyPart fileMime = new MimeBodyPart();
 			fileMime.attachFile(filePath);
@@ -96,7 +100,7 @@ public class App
 		try {
 			mimeMessage.setFrom(from);
 			//adding recipient to message
-			mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			//adding subject to message
 			mimeMessage.setSubject(subject);
 			//adding text to message
