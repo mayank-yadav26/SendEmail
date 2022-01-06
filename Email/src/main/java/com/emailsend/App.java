@@ -89,7 +89,7 @@ public class App
 
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("thunderstorm4627@gmail.com","thunder@123&");
+				return new PasswordAuthentication("thunderstorm4627@gmail.com","yourpassword");
 			}
 		});
 
